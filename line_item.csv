@@ -1,0 +1,37 @@
+PAYEE,Attributable,BILLINGCODE,DESCRIPTION,RATE,PCT,COMMISSION,STATUS
+Quincy,ABBY,ABBY,OATS Reporting (MPID APBI),200,25,50,Unpaid
+Quincy,ABBY,ABBY,MRC User: John Kerrigan,200,25,50,Unpaid
+Quincy,ABBY,ABBY,MRC User: Ed Coyle,200,25,50,Unpaid
+Quincy,ABBY,ABBY,Clearing firm integration Wedbush,500,25,125,Unpaid
+Quincy,ABBY,ABBY,Base OMS/EMS Fee,2500,25,625,Unpaid
+Quincy,CONVENTUS,BTIG,MRC risk platform & FIX Equities drop copy fee [client CONVENTUS],300,25,75,Unpaid
+Quincy,CONVENTUS,GS,MRC risk platform & FIX Equities drop copy fee [client CONVENTUS],500,25,125,Unpaid
+Quincy,CONVENTUS,WCHV,MRC FIX Two Way Connection Equities [Client Conventus] Jason Mallor,500,25,125,Unpaid
+Quincy,CONVENTUS,UBSW,MRC risk platform & FIX Equities drop copy fee [client CONVENTUS],300,25,75,Unpaid
+Quincy,CONVENTUS,BOOK,MRC risk platform & US FIX Equities drop copy fee [client CONVENTUS],500,25,125,Unpaid
+Quincy,CONVENTUS,BOOK,MRC risk platform & non-US FIX Equities drop copy fee [client CONVENTUS],500,25,125,Unpaid
+Quincy,CONVENTUS,MSCO,MRC risk platform & FIX Equities drop copy fee [client CONVENTUS],300,25,75,Unpaid
+Quincy,CONVENTUS,ML,MRC risk platform & FIX Equities drop copy fee [client CONVENTUS],300,25,75,Unpaid
+Quincy,CONVENTUS,JEFF,MRC risk platform & FIX Equities drop copy fee BBG/REDI [client CONVENTUS],300,25,75,Unpaid
+Quincy,CONVENTUS,JEFF,MRC FIX Two Way Connection Equities [Client Conventus] Jason Mallor,500,25,125,Unpaid
+Quincy,CONVENTUS,BCMS,Portfolio Management Base Fee Client [Conventus Capital LLC] ,2000,25,500,Unpaid
+Quincy,JONES,RAJA,MRC OMS & FIX Equities order routing fee [client Jones Trading],500,25,125,Unpaid
+Quincy,JONES,JONE,2 way fix connection: Hunter's Peak to Jones (Eze OMS),150,25,37.5,Unpaid
+Quincy,JONES,JONE,Jones Icon Base Fee (Next month's service),12000,25,3000,Unpaid
+Quincy,JONES,JONE,MRC FIC Two Way FIX Connection Equities Client LANDSCAPE via Victor Securities,150,25,37.5,Unpaid
+Quincy,JONES,JONE,Kynikos FIX Order Routing Connection,150,25,37.5,Unpaid
+Quincy,JONES,JONE,Newtyn FIX NOEs and Order Routing,150,25,37.5,Unpaid
+Quincy,JONES,JONE,Pleasant Lake [EOD Broadcourt: NOE Eze: Blotter: FIX] (Next Month's Service),1300,25,325,Unpaid
+Quincy,JONES,JONE,Parametric FIX Order Routing,150,25,37.5,Unpaid
+Quincy,LINCOLN,WEED,MRC FIX: Lincoln Capital,500,25,125,Unpaid
+Quincy,POTOMAC,RILY,MRC OMS & FIX Equitiies order routing fee [client POTOMAC],250,25,62.5,Unpaid
+Quincy,POTOMAC,CHLM,MRC OMS & FIX Equities order routing fee [client POTOMAC],500,25,125,Unpaid
+Quincy,POTOMAC,BTIG,MRC OMS & FIX Equitiies order routing fee [client POTOMAC],500,25,125,Unpaid
+Quincy,POTOMAC,NITE,MRC OMS & FIX Equities order routing fee [client POTOMAC],500,25,125,Unpaid
+Quincy,POTOMAC,JONE,MRC OMS & FIX Equities order routing fee [client POTOMAC],500,25,125,Unpaid
+Quincy,POTOMAC,JEFF,MRC OMS & FIX Options order routing fee client POTOMAC,500,25,125,Unpaid
+Quincy,POTOMAC,JEFF,MRC OMS & FIX Equities order routing fee [client POTOMAC],500,25,125,Unpaid
+Quincy,RILY,RILY,MRC FIX Granite Capital Order Routing,150,25,37.5,Unpaid
+Quincy,RILY,RILY,MRC FIX Manatuck Order Routing,150,25,37.5,Unpaid
+Quincy,RILY,RILY,MRC FIX Dialectic Order Routing,150,25,37.5,Unpaid
+Quincy,RILY,RILY,MRC FIX Doheny Order Routing,150,25,37.5,Unpaid
