@@ -1,0 +1,45 @@
+import mysql.connector
+from mysql.connector import MySQLConnection, Error
+from mysql_dbconfig import read_db_config
+import sys
+from calendar import monthrange
+from datetime import datetime, timedelta
+
+
+
+def create_output_file ():
+    filename = 'Quincy_invoices.csv'
+
+    db_config = read_db_config ()
+    if len(db_config) == 0:
+        sys.exit()
+    try:
+        conn = MySQLConnection (**db_config)
+        if conn.is_connected():
+            print "Connected to MySQL database"
+
+        cursor = conn.cursor()
+
+        query = """
+                   (SELECT 'INV_CODE', 'Invoice_Date', 'Billed_Month',
+                    'Service_Month', 'Payee', 'Firm_Code', 'BillingCode',
+                    'Attributable', 'Description', 'Rate', 'Commission',
+                    'Percentage', 'Status')
+                   UNION
+                   (SELECT * FROM invoices
+                   WHERE Status = 'Unpaid'
+                   INTO OUTFILE '/tmp/Quincy_invoices.csv'
+                   FIELDS ENCLOSED BY '"'
+                   TERMINATED BY ','
+                   LINES TERMINATED BY '\n')
+                """ 
+        args = (filename)        
+        cursor.execute (query, args)
+
+    except Error as e:
+        print(e)
+        
+    finally:
+        print "Closing connection"
+        cursor.close()
+        conn.close()

@@ -41,7 +41,7 @@ def gen_new_file (old_dir, new_dir, filename, separator):
     f.close()
 
 def main():
-    old_dir = "/home/osboxes/Desktop/Windows-Share/"
+    old_dir = "/home/smenon/Desktop/Windows-Share/"
     new_dir = "" # saving to this directory
 
     filename = "LB_paid.csv"

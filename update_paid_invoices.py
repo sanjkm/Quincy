@@ -44,7 +44,7 @@ def convert_csv_table (conn):
 
     cursor = conn.cursor()
 
-    query = "LOAD DATA INFILE '/home/osboxes/Quincy/LB_paid.csv' " \
+    query = "LOAD DATA LOCAL INFILE '/home/smenon/Quincy/LB_paid.csv' " \
             "INTO TABLE LB_paid_list " \
             "FIELDS TERMINATED BY ',' " \
             "LINES TERMINATED BY '\n' " \
@@ -82,7 +82,7 @@ def create_unpaid_csv (conn):
            UNION
            (SELECT * FROM invoices
            WHERE Status = 'Unpaid'
-           INTO OUTFILE '/home/osboxes/Quincy/current_unpaid_invoices.csv'
+           INTO OUTFILE '/home/smenon/Quincy/current_unpaid_invoices.csv'
            FIELDS ENCLOSED BY '"'
            TERMINATED BY ','
            LINES TERMINATED BY '\n')
@@ -104,7 +104,7 @@ def unpaid_invoice_summary (conn):
            FROM invoices
            WHERE Status = 'Unpaid'
            GROUP BY BillingCode
-           INTO OUTFILE '/home/osboxes/Quincy/unpaid_invoice_summary.csv'
+           INTO OUTFILE '/home/smenon/Quincy/unpaid_invoice_summary.csv'
            FIELDS ENCLOSED BY '"'
            TERMINATED BY ','
            LINES TERMINATED BY '\n')

@@ -60,7 +60,8 @@ def modify_table_invoice_form():
                 "CHANGE COLUMN Attributable Attributable VARCHAR(25) " \
                 "NOT NULL AFTER BillingCode, " \
                 "ADD COLUMN INV_CODE VARCHAR(25) NULL FIRST, " \
-                "ADD COLUMN Invoice_Date DATE NOT NULL AFTER INV_CODE, " \
+                "ADD COLUMN Invoice_Date DATE NOT NULL " \
+                "AFTER INV_CODE, " \
                 "ADD COLUMN Billed_Month DATE NOT NULL AFTER Invoice_Date, " \
                 "ADD COLUMN Service_Month DATE NOT NULL AFTER Billed_Month, " \
                 "ADD COLUMN Firm_Code VARCHAR(25) NOT NULL AFTER Payee"
@@ -490,7 +491,7 @@ def create_output_file ():
                    UNION
                    (SELECT * FROM invoices
                    WHERE Status = 'Unpaid'
-                   INTO OUTFILE '/home/smenon/Quincy/Quincy_invoices.csv'
+                   INTO OUTFILE '/home/osboxes/Quincy/Quincy_invoices.csv'
                    FIELDS ENCLOSED BY '"'
                    TERMINATED BY ','
                    LINES TERMINATED BY '\n')
@@ -509,9 +510,11 @@ def create_output_file ():
 def main():
     
     create_init_table()
-    modify_table_invoice_form()
-    add_firm_code()
 
+    modify_table_invoice_form()
+
+    add_firm_code()
+    
     month_num = raw_input ("Please enter month number to update invoice " \
                            "table. This month corresponds to the month  " \
                            "the invoice was sent: ")
@@ -532,7 +535,6 @@ def main():
     update_INVCODE()
     insert_new_invoices ()
     drop_created_tables ()    
-
     create_output_file ()
 
 main()
