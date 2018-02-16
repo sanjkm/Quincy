@@ -1,0 +1,75 @@
+# BOY_2018_updates.py
+# Makes required database changes and additions to accounts
+# for beginning of 2018
+# 3 main changes to be effected:
+# 1) Remove the BTIG Line for Conventus (outstanding and going forward)
+# 2) Remove all DINO invoices for 2018 and going forward
+# 3) Remove all RAJA lines (outstanding and going forward)
+
+import os,sys,inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+sys.path.insert(0,parentdir) # contains module mysql_dbconfig
+
+from mysql_dbconfig import read_db_config
+
+import mysql.connector
+from mysql.connector import MySQLConnection, Error
+
+# Makes two edits to the invoices and line_item databases
+# reflecting the lapse of BTIG's line for Conventus
+def query_execute (conn, query_base, query_final=""):
+    cursor = conn.cursor()
+    query_table = "DELETE FROM invoices "
+
+    query_add = " AND Status='Unpaid' "
+    args = ()
+    
+    cursor.execute (query_table + query_base + query_add + query_final, args)
+
+    query_table = "DELETE FROM line_item "
+    cursor.execute (query_table + query_base, args)
+
+    conn.commit()
+
+# Lists the query conditions for all queries to be executed
+def fill_query_list ():
+    query_list = []
+    query_base = "WHERE BillingCode='BTIG' AND " + \
+                 "Attributable='CONVENTUS' "
+    query_list.append((query_base))
+    query_base = "WHERE BillingCode='DINO' "
+    query_final = " AND YEAR(Invoice_Date)=2018 "
+    query_list.append((query_base, query_final))
+    query_base = "WHERE BillingCode='RAJA' "
+    query_list.append((query_base))
+
+    return query_list
+
+def main():
+
+    db_config = read_db_config ()
+    if len(db_config) == 0:
+        sys.exit()
+    try:
+        conn = MySQLConnection (**db_config)
+        if conn.is_connected():
+            print "Connected to MySQL database"
+            
+        query_list = fill_query_list()
+            
+        # Pass conn into function for each change item
+        for query_params in query_list:
+            if len(query_params) == 1:
+                query_execute (conn, query_params[0])
+            else:
+                query_execute (conn, query_params[0], query_params[1])
+
+    except Error as e:
+        print(e)
+        
+    finally:
+        print "Closing connection"
+        conn.close()
+    
+main()
