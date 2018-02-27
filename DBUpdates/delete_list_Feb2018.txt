@@ -1,0 +1,6 @@
+Table,line_item;BillingCode,'BTIG';Attributable,'CONVENTUS'
+Table,invoices;BillingCode,'BTIG';Attributable,'CONVENTUS';Status,'Unpaid'
+Table,line_item;BillingCode,'DINO'
+Table,invoices;BillingCode,'DINO';YEAR(Invoice_Date),2018
+Table,line_item;BillingCode,'RAJA'
+Table,invoices;BillingCode,'RAJA';Status,'Unpaid'
