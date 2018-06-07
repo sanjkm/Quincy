@@ -1,7 +1,7 @@
 # query_delete.py
 # Deletes records from tables within quincy database
 # Records are determined from queries contained in
-# fill_query_list module (and the function chosen from there)
+# inputted textfile, where filename is inputted as argument from command line
 
 # Adds the parent directory to the path of this program
 import os,sys,inspect
@@ -35,12 +35,15 @@ def query_delete_execute (conn, query_dict):
 
         index+=1
     args = ()
-    print query
-#    cursor.execute (query, args)
-#    conn.commit()
+
+    cursor.execute (query, args)
+    conn.commit()
 
 def main():
-
+    if len(sys.argv) == 1:
+        print "No input file entered"
+        exit(1)
+    
     db_config = read_db_config (parentdir + '/' + db_config_file, db_section)
     if len(db_config) == 0:
         sys.exit()
@@ -49,8 +52,10 @@ def main():
         if conn.is_connected():
             print "Connected to MySQL database"
             
+
+        filename = sys.argv[1]
         # list of dictionaries containing query attributes
-        query_list = fill_query_list()
+        query_list = fill_query_list(filename)
                     
         for query_dict in query_list:
             query_delete_execute (conn, query_dict)

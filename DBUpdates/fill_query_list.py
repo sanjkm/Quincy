@@ -2,27 +2,22 @@
 # Lists the query conditions for all queries to be executed
 
 # 2/15/2018
-# Queries to generate record deletion for the beginning of 2018
-# 1) BTIG-Conventus 2) DINO 3) RAJA
-def fill_query_list ():
+# Queries to generate record deletion
+# Opens the inputted file which contains full query parameters on each line
+# The specifics of each query are collated, put into a dictionary, and each
+# dictionary is appended to query_list, which is returned
+
+def fill_query_list (filename):
+    delim1, delim2 = ';', ','
     query_list = []
-    
-    query_list.append({'Table':'line_item',
-                  'BillingCode':"'BTIG'",
-                       'Attributable':"'CONVENTUS'"})
-    query_list.append({'Table':'invoices',
-                       'BillingCode':"'BTIG'",
-                       'Attributable':"'CONVENTUS'",
-                       'Status':"'Unpaid'"})
-            
-    query_list.append({'Table':'line_item',
-                       'BillingCode':"'DINO'"})
-    query_list.append({'Table':'invoices',
-                       'BillingCode':"'DINO'",
-                       'YEAR(Invoice_Date)':'2018'})
-    query_list.append({'Table':'line_item',
-                       'BillingCode':"'RAJA'"})
-    query_list.append({'Table':'invoices',
-                       'BillingCode':"'RAJA'",
-                       'Status':"'Unpaid'"})
+    with open(filename, 'r') as f:
+        for line in f:
+            query_dict = {}
+            conditions = (line.strip()).split(delim1)
+            for query in conditions:
+                field, value = query.split(delim2)
+                query_dict[field] = value
+            query_list.append(query_dict)
+    f.close()
+
     return query_list

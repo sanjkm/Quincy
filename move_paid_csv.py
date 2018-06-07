@@ -9,7 +9,7 @@ from pathlib2 import Path
 
 def main():
     old_dir = '/media/smenon/Windows7_OS/Documents and Settings/Sanjay/Desktop/Linux-share/'
-    new_dir = '/home/smenon/Desktop/Windows-share/'
+    new_dir = '/home/smenon/Desktop/Windows-Share/'
 
     filename = 'LB_paid.csv'
 
