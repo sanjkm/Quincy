@@ -6,23 +6,87 @@ import os
 import datetime
 from gen_reminder_emails import genReminderEmail
 
+# Checks for Labor Day, New Year's eve, or 4th of July issues.
+# Returns specific results for these cases
+# Returns a pair of numbers: test value (is it a holiday case, 0 or 1)
+# and the value to return if it is, zero if it is now
+def holiday_check (now):
+    if now.month != 9 and now.month != 1 and now.month != 7 and now.month != 4:
+        return 0,0
 
-# Determine if first (1), second(2), or neither email (0) should be sent
+    if now.month == 9:
+        if now.year == 2018:
+            if now.day == 5:
+                return 1,2
+            if now.day == 6:
+                return 1,3
+            return 1,0
+            
+        if now.year == 2019:
+            if now.day == 4:
+                return 1,2
+            if now.day == 5:
+                return 1,3
+            return 1,0
+
+    if now.month == 1:
+        if now.year == 2019:
+            if now.day == 3:
+                return 1,2
+            if now.day == 4:
+                return 1,3
+            return 1,0
+            
+        if now.year == 2020:
+            if now.day == 3:
+                return 1,2
+            if now.day == 6:
+                return 1,3
+            return 1,0
+            
+        if now.year == 2021:
+            if now.day == 5:
+                return 1,2
+            if now.day == 6:
+                return 1,3
+            return 1,0
+
+    if now.month == 7:
+        if now.year == 2020:
+            if now.day == 2:
+                return 1,2
+            if now.day == 6:
+                return 1,3
+            return 1,0
+
+    if now.month == 4:
+        if now.year == 2021:
+            if now.day == 5:
+                return 1,2
+            if now.day == 6:
+                return 1,3
+            return 1,0
+    
+    return 0,0
+            
+
+# Determine if first (1), second(2), third(3),
+# or no email (0) should be sent
 def calcWhichReminder():
     now = datetime.datetime.now()
 
     dow = now.weekday() # 0 for Monday, 6 for Sunday
+
+    # pair of values returned - first indicates whether a holiday case,
+    # second indicates what should be returned in that case
+    holiday_test, holiday_val = holiday_check (now)
     
+    if holiday_test == 1:
+
+        return holiday_val
+        
     if dow > 4:
         return 0    
-    if now.month == 9 and now.year < 2020: # Labor Day
-        return 0
-    if now.month == 1:
-        return 0
-
-    if now.month == 7 and now.day == 4: # 4th of July
-        return 0
-
 
 
     # First weekday of month (note: I don't send these emails anymore
@@ -52,6 +116,8 @@ def calcWhichReminder():
     if now.day == 4 and dow == 2:
         return 3
     if now.day == 5 and dow == 2:
+        return 3
+    if now.day == 5 and now.month == 7 and now.year == 2018:
         return 3
     return 0
 
@@ -90,25 +156,27 @@ def main():
     THIRD_REMINDER_CMD_LINE = './third_reminder.sh'
     
     reminder_num = calcWhichReminder()
-
+    
     if reminder_num == 1:
         genReminderEmail(CURR_DIR + FIRST_REMINDER_TEMPLATE + \
                          str(genTemplateNumber()) + SUFFIX,
-                         FIRST_OUTPUT_FILE + SUFFIX,
+                         CURR_DIR + FIRST_OUTPUT_FILE + SUFFIX,
                          LINES_UNTIL_MONTH, calcRelevantMonth())
         os.system(CURR_DIR + FIRST_REMINDER_CMD_LINE)
         
     elif reminder_num == 2:
+
         genReminderEmail(CURR_DIR + SECOND_REMINDER_TEMPLATE + \
                          str(genTemplateNumber()) + SUFFIX,
-                         SECOND_OUTPUT_FILE + SUFFIX,
+                         CURR_DIR + SECOND_OUTPUT_FILE + SUFFIX,
                          LINES_UNTIL_MONTH, calcRelevantMonth())
+
         os.system(CURR_DIR + SECOND_REMINDER_CMD_LINE)
 
     elif reminder_num == 3:
         genReminderEmail(CURR_DIR + THIRD_REMINDER_TEMPLATE + \
                          str(genTemplateNumber()) + SUFFIX,
-                         THIRD_OUTPUT_FILE + SUFFIX,
+                         CURR_DIR + THIRD_OUTPUT_FILE + SUFFIX,
                          LINES_UNTIL_MONTH, calcRelevantMonth())
         os.system(CURR_DIR + THIRD_REMINDER_CMD_LINE)
         

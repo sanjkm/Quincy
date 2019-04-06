@@ -1,24 +1,26 @@
 Billed_Month,BillingCode,Description,Status,Filler
-2018-04-30,WCHV,MRC FIX Two Way Connection Equities [Client Conventus] Jason Mallor,Paid,Yes
-2018-04-30,ML,MRC risk platform & FIX Equities drop copy fee [client CONVENTUS],Paid,Yes
-2018-04-30,JONE,MRC Pleasant Lake Partners platform charge ,Paid,Yes
-2018-04-30,JONE,MRC OMS & FIX Equities order routing fee [client POTOMAC],Paid,Yes
-2018-04-30,JONE,MRC FIC Two Way FIX Connection Equities Client LANDSCAPE via Victor Securities,Paid,Yes
-2018-04-30,JONE,Kynikos FIX Order Routing Connection,Paid,Yes
-2018-04-30,JONE,Jones Icon Base Fee (Next month's service),Paid,Yes
-2018-04-30,JONE,2 way fix connection: Hunter's Peak to Jones (Eze OMS),Paid,Yes
-2018-04-30,JONE,Parametric FIX Order Routing,Paid,Yes
-2018-04-30,JEFF,MRC FIX Two Way Connection Equities [Client Conventus] Jason Mallor,Paid,Yes
-2018-04-30,JEFF,MRC risk platform & FIX Equities drop copy fee BBG/REDI [client CONVENTUS],Paid,Yes
-2018-04-30,JEFF,MRC OMS & FIX Options order routing fee client POTOMAC,Paid,Yes
-2018-04-30,JEFF,MRC OMS & FIX Equities order routing fee [client POTOMAC],Paid,Yes
-2018-04-30,GS,MRC risk platform & FIX Equities drop copy fee [client CONVENTUS],Paid,Yes
-2018-04-30,CHLM,MRC OMS & FIX Equities order routing fee [client POTOMAC],Paid,Yes
-2018-04-30,BTIG,MRC OMS & FIX Equitiies order routing fee [client POTOMAC],Paid,Yes
-2018-03-31,RILY,MRC FIX Granite Capital Order Routing,Paid,Yes
-2018-03-31,RILY,MRC FIX Doheny Order Routing,Paid,Yes
-2018-03-31,RILY,MRC OMS & FIX Equitiies order routing fee [client POTOMAC],Paid,Yes
-2018-03-31,RILY,MRC FIX Manatuck Order Routing,Paid,Yes
-2018-03-31,BOOK,MRC risk platform & US FIX Equities drop copy fee [client CONVENTUS],Paid,Yes
-2018-03-31,BOOK,MRC risk platform & non-US FIX Equities drop copy fee [client CONVENTUS],Paid,Yes
-2017-10-31,BCMS,Portfolio Management Base Fee Client [Conventus Capital LLC] ,Paid,Yes
+2019-02-28,WCHV,MRC FIX Two Way Connection Equities [Client Conventus] Jason Mallor,Paid,Yes
+2019-02-28,UBSW,MRC risk platform & FIX Equities drop copy fee [client CONVENTUS],Paid,Yes
+2019-02-28,NITE,MRC OMS & FIX Equities order routing fee [client POTOMAC],Paid,Yes
+2019-02-28,ML,MRC risk platform & FIX Equities drop copy fee [client CONVENTUS],Paid,Yes
+2019-02-28,JONE,MRC OMS & FIX Equities order routing fee [client POTOMAC],Paid,Yes
+2019-02-28,JONE,2 way fix connection: Hunter's Peak to Jones (Eze OMS),Paid,Yes
+2019-02-28,JONE,Jones Icon Base Fee (Next month's service),Paid,Yes
+2019-02-28,JONE,Kynikos FIX Order Routing Connection,Paid,Yes
+2019-02-28,JONE,MRC FIC Two Way FIX Connection Equities Client LANDSCAPE,Paid,Yes
+2019-02-28,JEFF,MRC FIX Two Way Connection Equities [Client Conventus] Jason Mallor,Paid,Yes
+2019-02-28,JEFF,MRC risk platform & FIX Equities drop copy fee BBG/REDI [client CONVENTUS],Paid,Yes
+2019-02-28,JEFF,MRC OMS & FIX Options order routing fee client POTOMAC,Paid,Yes
+2019-02-28,JEFF,MRC OMS & FIX Equities order routing fee [client POTOMAC],Paid,Yes
+2019-02-28,GS,MRC risk platform & FIX Equities drop copy fee [client CONVENTUS],Paid,Yes
+2019-02-28,CHLM,MRC OMS & FIX Equities order routing fee [client POTOMAC],Paid,Yes
+2019-02-28,BCMS,Portfolio Management Base Fee Client [Conventus Capital LLC] ,Paid,Yes
+2019-01-31,BOOK,MRC risk platform & non-US FIX Equities drop copy fee [client CONVENTUS],Paid,Yes
+2019-01-31,BOOK,MRC risk platform & US FIX Equities drop copy fee [client CONVENTUS],Paid,Yes
+2017-07-31,RILY,MRC FIX Granite Capital Order Routing,Paid,Yes
+2017-07-31,RILY,MRC FIX Manatuck Order Routing,Paid,Yes
+2017-07-31,RILY,MRC FIX Dialectic Order Routing,Paid,Yes
+2017-07-31,RILY,MRC FIX Doheny Order Routing,Paid,Yes
+2017-07-31,RILY,MRC OMS & FIX Equitiies order routing fee [client POTOMAC],Paid,Yes
+2017-03-31,BOOK,MRC risk platform & US FIX Equities drop copy fee [client CONVENTUS],Paid,Yes
+2017-03-31,BOOK,MRC risk platform & non-US FIX Equities drop copy fee [client CONVENTUS],Paid,Yes
