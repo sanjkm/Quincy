@@ -18,6 +18,17 @@ from mysql.connector import MySQLConnection, Error
 
 from fill_query_list import fill_query_list
 
+# If the field value begins with 'LIKE', then the equals in the query will
+# be replaced with a LIKE statement
+def check_for_LIKE (query_field_val):
+    test_str = 'LIKE'
+    
+    if len(query_field_val) < (1 + len(test_str)):
+        return 0
+    if query_field_val[1:1+len(test_str)] == test_str:
+        return 1
+    return 0
+
 # Executes the query defined by the field-attribute pairs contained in the
 # inputted dictionary query_dict
 def query_delete_execute (conn, query_dict):
@@ -28,7 +39,15 @@ def query_delete_execute (conn, query_dict):
     for k in query_dict:
         if k == 'Table':
             continue
-        query_add = k + "=" + query_dict[k] + " "
+
+        # If field value begins with 'LIKE', then the query line is a
+        # LIKE statement, not an equals
+        # Query is modified appropriately
+        if check_for_LIKE (query_dict[k]) == 1:    
+            query_add = k + " LIKE '" + query_dict[k][6:] + " "
+
+        else:
+            query_add = k + "=" + query_dict[k] + " "
         if index > 0:
             query_add = "AND " + query_add
         query = query + query_add

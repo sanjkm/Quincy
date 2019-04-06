@@ -1,0 +1,2 @@
+Table,line_item;Description,'LIKE %Dialectic%';BillingCode,'RILY'
+Table,invoices;Description,'LIKE %Dialectic%';BillingCode,'RILY';Status,'Unpaid'
